@@ -1,0 +1,8 @@
+<div style="height: 370px;overflow: scroll">
+<button type="button" ng-click="filterSize('')" class="btn btn-default dialog-button" data-dismiss="modal">Nopreference</button>
+
+<div class="ngdialog-message" ng-repeat="contry in contries">
+
+            <button type="button" ng-click="filterLocation(contry.alpha)" class="btn btn-default dialog-button" data-dismiss="modal">{{contry.name}}</button>
+					 
+		</div>

@@ -1,0 +1,10 @@
+<table class="table table-hover">
+
+	<tbody>
+		<tr class="collage_details" ng-repeat="college in colleges | filter:searchText | filter:filterYear | filter:filterAccessButton | filter: filterSettingButton | rangeFilter:{userMin:minimumValue,userMax:maximumValue} | filter : filterLocationButton">
+			<td>{{college.ORG_FULL_NM}}</td>
+			<td>{{college.ORG_ID}}</td>
+
+		</tr>
+	</tbody>
+</table>

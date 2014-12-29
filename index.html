@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	      <meta http-equiv="x-ua-compatible" content="IE=edge" />
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+		<link rel="stylesheet" type="text/css" href="css/snap.css">
+		<link rel="stylesheet" href="css/ngDialog.css">
+		<link rel="stylesheet" href="css/ngDialog-theme-default.css">
+	
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+		<script src="js/ngDialog.js"></script>
+		<script type="text/javascript" src="js/snap.js"></script>
+		
+		<script type="text/javascript" src="js/controllers.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		
+	</head>
+	<body ng-app="collegeApp" ng-controller="CollegeController">
+		<div id="content" class="container snap-content">
+			<div class="navbar">
+				<div class="navbar-inner navbar-fixed-top header" style="background-color: blue;background-image:none !important">
+					<form class="navbar-search pull-left">
+						<input class="search-query" ng-click="clearFilters()" ng-model="searchText" type="text" value="" placeholder="Search Colleges"/>
+						<div class="college_length" style="color: white;">Displaying {{(colleges | filter:searchText | filter:filterYear | filter:filterAccessButton | filter: filterSettingButton | rangeFilter:{userMin:minimumValue,userMax:maximumValue} | filter:filterLocationButton).length }} Colleges</div>
+					</form>					
+					 <a href="#" id="open-right"></a>
+				</div>
+				
+			</div>
+			<div ng-view style="margin-top: 5%;"></div>
+		</div>
+		    <div class="snap-drawers">
+            <div class="snap-drawer snap-drawer-right">
+            <div id="filter_search" style="width:444px;height:800px;">
+						<div style="height:7%; background-color:#000033;font-size:19px;color:white;padding:9px;">
+							Filter your search results
+						</div>
+						<div style="height:90%;background-color:#3333FF;">
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							Four years vs Community college
+							</br><button ng-click="open('yearDialog')" class="button white" style="width: 30%; margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">{{yearButton}}</button>
+							</div>
+							<hr>
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							Private vs Public 
+							</br><button class="button white" ng-click="open('accessType')" style="width: 30%; margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">{{accessType}}</button>
+							</div>
+							<hr>
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							Size no of students
+							</br><button ng-click="open('size')" class="button white" style="width: 30%; margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">{{sizeButton}}</button>
+							</div>
+							<hr>
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							Setting
+							</br><button ng-click="open('setting')" class="button white" style="width: 30%; margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">{{setting}}</button>
+							</div>
+							<hr>
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							Location
+							</br><button ng-click="open('location')" class="button white" style="width: 30%; margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">{{contryButton}}</button>
+							</div>
+							<hr>
+							<div style="height:10%;padding-left:20px;padding-top:15px;color:white;">
+							</br><button id="done" class="button white" style="width: 20%;margin-top:13px;padding: 8px 8px 8px 8px;border-radius:10px;">GO</button>
+							</div>
+							
+							
+						</div>
+		`			</div>
+            </div>
+        </div>
+
+	</body>
+	        <script type="text/javascript" src="js/demo.js"></script>
+
+</html>
